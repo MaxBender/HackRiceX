@@ -1,7 +1,9 @@
 library(shiny)
+library(shinythemes)
 
 # Define UI for application that plots random distributions 
-shinyUI(pageWithSidebar(
+shinyUI(fluidPage(
+  theme = shinytheme("superhero"),
   
   # Application title
   headerPanel("Hello Shiny!"),
@@ -18,7 +20,8 @@ shinyUI(pageWithSidebar(
   # Show a plot of the generated distribution
   mainPanel(
     tabsetPanel(
-      tabPanel("data", plotOutput("distPlot")),
+      tabPanel("Plot", plotOutput("distPlot")),
+      tabPanel("Data", dataTableOutput('data')),
       tabPanel("Short-Term Liabilities", "SHORT")
       
     )
